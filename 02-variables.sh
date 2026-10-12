@@ -1,6 +1,6 @@
 #!/bin/bash
-PERSON1=Suresh
-PERSON2=Ramesh
+PERSON1=Ram
+PERSON2=Loges
 echo "$PERSON1: Hi $PERSON2 good morning"
 echo "$PERSON2: Hello $PERSON1 Very good morning"
 echo "$PERSON1: How are you $PERSON2"
