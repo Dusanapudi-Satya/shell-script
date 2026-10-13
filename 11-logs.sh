@@ -29,13 +29,13 @@ else
     # exit 0 , means success
 fi
 
-yum install mysql -y &>> LOG_FILE
+yum install mysql -y &>> $LOG_FILE
 
 # validation: to check mysql installed successfully
 
 VALIDATE $? "Installing MySQL"
 
-yum install git -y &>> LOG_FILE 
+yum install git -y &>> $LOG_FILE 
 
 # validation: to check GIT installed successfully
 
