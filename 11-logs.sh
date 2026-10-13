@@ -1,6 +1,8 @@
 #!/bin/bash
 ID=$(id -u)
 
+echo "script name: $0"
+
 TIMESTAMP=$( date +%F-%H-%M-%S)
 
 R="\e[31m"
