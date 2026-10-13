@@ -10,7 +10,7 @@ else
     # exit 0 , means success
 fi
 
-yum install mysql -y
+yum install mysqlllllllll -y
 # validation: to check mysql installed successfully
 
 if [ $? -ne 0 ];
