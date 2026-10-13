@@ -4,7 +4,7 @@ ID=$(id -u)
 echo "script name: $0"
 
 TIMESTAMP=$( date +%F-%H-%M-%S)
-
+LOG_FILE="/tmp/$0-$TIMESTAMP.log"
 R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
@@ -29,13 +29,13 @@ else
     # exit 0 , means success
 fi
 
-yum install mysql -y
+yum install mysql -y &>> LOG_FILE
 
 # validation: to check mysql installed successfully
 
 VALIDATE $? "Installing MySQL"
 
-yum install git -y
+yum install git -y &>> LOG_FILE 
 
 # validation: to check GIT installed successfully
 
