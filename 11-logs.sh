@@ -11,7 +11,7 @@ VALIDATE(){
     then
         echo -e " Error: $2 ... is $R failed $N"
     else
-        echo -e "$2 ... is $G SUCCESS"
+        echo -e "$2 ... is $G SUCCESS $N"
     fi
 }
 if [ $ID -ne 0 ];
