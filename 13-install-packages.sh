@@ -9,6 +9,14 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
+VALIDATE(){
+if [$1 -ne 0]
+then
+do 
+echo -e " $R Error : Installing $package Failed $N"
+done
+
+}
 if [ $ID -ne 0 ];
 then 
     echo -e " $R Error: Please run with root access $N "
@@ -21,3 +29,14 @@ fi
 # step 2: check if the package is already installed or not
 echo "All arguments passed: $@"
 #yum list installed package 
+
+yum list installed $package
+if [$? -ne 0]
+then
+do 
+    yum install $package -y
+    VALIDATE $? "Installation of $package.."
+    else
+    echo " $Y $package already installed $N"
+
+done
