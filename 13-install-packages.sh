@@ -9,7 +9,7 @@ echo "script name: $0"
 TIMESTAMP=$( date +%F-%H-%M-%S)
 LOG_FILE="/tmp/$0-$TIMESTAMP.log"
 
-echo "script started executing at $TIMESTAMP"
+echo "script started executing at $TIMESTAMP" &>> $LOG_FILE
 VALIDATE(){
     if [ $1 -ne 0 ]
     then 
@@ -33,10 +33,10 @@ fi
 #yum list installed package 
 for package in $@
 do
-    yum list installed $package
+    yum list installed $package &>> $LOG_FILE
     if [ $? -ne 0 ]
     then
-        yum install $package -y
+        yum install $package -y &>> $LOG_FILE
         VALIDATE $? "Installation of $package.."
     else
         echo -e " $package already installed .. $Y SKIPPING $N"
