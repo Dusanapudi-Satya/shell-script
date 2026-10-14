@@ -8,12 +8,12 @@ R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
-
+echo "script started executing at $TIMESTAMP"
 VALIDATE(){
-if [$1 -ne 0]
+if [ $1 -ne 0 ]
 then
-do 
-echo -e " $R Error : Installing $package Failed $N"
+do  
+    echo -e " $R Error : Installing $package Failed $N"
 done
 
 }
@@ -27,16 +27,17 @@ else
 fi
 
 # step 2: check if the package is already installed or not
-echo "All arguments passed: $@"
+#echo "All arguments passed: $@"
 #yum list installed package 
+for package in $@
+do
+    yum list installed $package
+    if [ $? -ne 0 ]
+    then
 
-yum list installed $package
-if [$? -ne 0]
-then
-do 
-    yum install $package -y
-    VALIDATE $? "Installation of $package.."
+        yum install $package -y
+        VALIDATE $? "Installation of $package.."
     else
-    echo " $Y $package already installed $N"
+    echo -e " $package already installed .. $Y SKIPPING $N"
 
 done
