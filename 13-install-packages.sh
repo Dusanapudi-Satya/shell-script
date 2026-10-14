@@ -1,13 +1,14 @@
 #!/bin/bash
+R="\e[31m"
+G="\e[32m"
+Y="\e[33m"
+N="\e[0m"
 # step 1: check if the user has root access to install packages
 ID=$(id -u)
 echo "script name: $0"
 TIMESTAMP=$( date +%F-%H-%M-%S)
 LOG_FILE="/tmp/$0-$TIMESTAMP.log"
-R="\e[31m"
-G="\e[32m"
-Y="\e[33m"
-N="\e[0m"
+
 echo "script started executing at $TIMESTAMP"
 VALIDATE(){
     if [ $1 -ne 0 ]
@@ -35,10 +36,9 @@ do
     yum list installed $package
     if [ $? -ne 0 ]
     then
-
         yum install $package -y
         VALIDATE $? "Installation of $package.."
     else
-    echo -e " $package already installed .. $Y SKIPPING $N"
-
+        echo -e " $package already installed .. $Y SKIPPING $N"
+    fi
 done
