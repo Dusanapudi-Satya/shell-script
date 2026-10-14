@@ -10,11 +10,12 @@ Y="\e[33m"
 N="\e[0m"
 echo "script started executing at $TIMESTAMP"
 VALIDATE(){
-if [ $1 -ne 0 ]
-then
-do  
-    echo -e " $R Error : Installing $package Failed $N"
-done
+    if [ $1 -ne 0 ]
+    then 
+        echo -e " $2 .. $R Failed $N"
+    else
+        echo -e " $2 .. $G SUCCESS $N"
+    fi    
 
 }
 if [ $ID -ne 0 ];
