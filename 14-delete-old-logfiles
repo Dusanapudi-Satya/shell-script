@@ -5,7 +5,7 @@ Y="\e[33m"
 N="\e[0m"
 # step 1: check if the directory exists or not
 
-SOURCE_DIR=/tmp/shellscript-logs
+SOURCE_DIR="/tmp/shellscript-logs"
 if[ ! -d $SOURCE_DIR ]
 then
     echo -e "$R Source Directory does not exists $N"
