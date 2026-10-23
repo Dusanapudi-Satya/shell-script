@@ -10,8 +10,10 @@ if[ ! -d $SOURCE_DIR ]
 then
     echo -e "$R Source Directory does not exists $N"
 fi
-FILES_TO_DELETE= $(find /tmp/shellscript-logs -type f -mtime +14 -name "*.log")
+
+FILES_TO_DELETE=$(find /tmp/shellscript-logs -type f -mtime +14 -name "*.log")
+
 while IFS= read -r line
 do
-    echo "Deleting $line"
+    echo "Deleting file: $line"
 done <<< $FILES_TO_DELETE
