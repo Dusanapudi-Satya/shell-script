@@ -16,7 +16,7 @@ do
     echo "GroupID: $group_id"
     echo "User Full Name: $user_fullname"
     echo "Home Directory: $home_dir"
-    echo "Shell Path: $shell_path"
+    #echo "Shell Path: $shell_path"
 
 
 done < $file
