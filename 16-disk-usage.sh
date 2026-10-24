@@ -4,16 +4,16 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 # 1. Check if the disk has data or a filesystem
-sudo file -s /dev/nvme1n1
+#sudo file -s /dev/nvme1n1
 
 # 2. Format the disk with XFS
-sudo mkfs -t xfs /dev/nvme1n1
+#sudo mkfs -t xfs /dev/nvme1n1
 
 # 3. Create a directory to use as a mount point (e.g., /data)
-sudo mkdir -p /data
+#sudo mkdir -p /data
 
 # 4. Mount the volume
-sudo mount /dev/nvme1n1 /data
+#sudo mount /dev/nvme1n1 /data
 
 # 5. Verify it is mounted
 
