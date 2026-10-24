@@ -33,3 +33,12 @@ done <<< $DISK_USAGE
 
 echo -e "Message:
  $message"
+ # Send via msmtp
+if [ -n "$message" ]; then
+  {
+    echo "To: dusanapudi.anji9@gmail.com"
+    echo "Subject: High Disk Usage Alert"
+    echo ""
+    echo -e "$message"
+  } | msmtp "dusanapudi.anji9@gmail.com"
+fi
