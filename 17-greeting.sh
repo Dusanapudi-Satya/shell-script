@@ -6,10 +6,10 @@ WISHES="Good Morning"
 
 # Help function
 usage() {
-  echo "Usage: $0 -n <NAME> [-w <WISHES>] [-h]"
+  echo "Usage:: $(basename $0) -n <name> -w <wishes>"
   echo "  -n  NAME is mandatory "
   echo "  -w  WISHES are optional"
-  echo "  -h  Show this help message"
+  echo "  -h  Show this help and exit"
   exit 1
 }
 
@@ -24,7 +24,7 @@ while getopts ":n:w:h" opt; do
     w)
       WISHES="$OPTARG"
       ;;
-    h)
+    h|*)
       usage
       ;;
     \?)
@@ -40,6 +40,6 @@ done
 
 # Validate that required flags were provided
 if [ -z "$NAME" ]; then
-  echo "Error: -n <name> is required." >&2
+  echo "Error: -n <NAME> is required." >&2
   usage
 fi
