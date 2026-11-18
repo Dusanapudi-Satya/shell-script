@@ -18,10 +18,10 @@ usage() {
 # A colon (:) AT THE START silences default bash error messages so we can handle them cleanly.
 while getopts ":n:w:h" opt; do
   case $opt in
-    d)
+    n)
       NAME="$OPTARG"
       ;;
-    t)
+    w)
       WISHES="$OPTARG"
       ;;
     h)
