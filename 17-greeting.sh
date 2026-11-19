@@ -43,3 +43,4 @@ if [ -z "$NAME" ]; then
   echo "Error: -n <NAME> is required." >&2
   usage
 fi
+echo "Hello $NAME. $WISHES. I have been practicing shellscript" 
